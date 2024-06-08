@@ -6,6 +6,6 @@ public abstract class NPCBaseState
 {
     public abstract void EnterState(NPCStateManager NPC);
     public abstract void UpdateState(NPCStateManager NPC);
-    public abstract void OnCollisionEnter(NPCStateManager NPC);
+    public abstract void OnEnter(NPCStateManager NPC);
 
 }

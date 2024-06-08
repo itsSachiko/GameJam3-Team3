@@ -6,14 +6,16 @@ public class NPCIdleState : NPCBaseState
 {
     public override void EnterState(NPCStateManager NPC)
     {
-        Debug.Log("npc is idling");
+        NPC.SwitchState(NPC.pathState);
     }
 
-    public override void OnCollisionEnter(NPCStateManager NPC)
+    public override void OnEnter(NPCStateManager NPC)
     {
+        
     }
 
     public override void UpdateState(NPCStateManager NPC)
     {
+        
     }
 }
