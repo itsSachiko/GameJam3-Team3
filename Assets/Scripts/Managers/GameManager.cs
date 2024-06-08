@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    void MovementDisabled()
     {
-        
+        InputManager.ActionMap.Player.Disable();
     }
 
-    // Update is called once per frame
-    void Update()
+    void MovementEnabled()
     {
-        
+        InputManager.ActionMap.Player.Enable();
+    }
+
+    void PauseTime(float timer)
+    {
+        Time.timeScale = timer;
     }
 }
