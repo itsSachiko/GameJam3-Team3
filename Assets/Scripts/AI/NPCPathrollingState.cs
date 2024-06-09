@@ -9,7 +9,7 @@ public class NPCPathrollingState : NPCBaseState
 
     public override void EnterState(NPCStateManager NPC)
     {
-
+        
     }
 
     public override void OnEnter(NPCStateManager NPC)
@@ -18,8 +18,7 @@ public class NPCPathrollingState : NPCBaseState
     }
 
     public override void UpdateState(NPCStateManager NPC)
-    {
-        
+    {        
         if (Vector3.Distance(NPC.transform.position, NPC.transforms[i].position)>0.1f)
         {
             NPC.agent.SetDestination(NPC.transforms[i].position);
