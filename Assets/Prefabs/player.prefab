@@ -269,7 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 739500878094176616}
   - component: {fileID: 7225187933567064161}
-  - component: {fileID: 325821041477886635}
+  - component: {fileID: 8740701618081147275}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -287,7 +287,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.16000003, z: 0.6300001}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2478504943530568987}
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe85afb13f128642bf8b4c9e35b03f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &325821041477886635
+--- !u!135 &8740701618081147275
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
