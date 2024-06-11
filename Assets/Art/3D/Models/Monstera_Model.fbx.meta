@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 979c698933382684f91f4b14de90f2cc
+guid: 814f13bd88dfaac4295cfcb316266fe5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,33 +7,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: seconda_foglia
-    second: {fileID: 2100000, guid: 9720e519462caa54e85aac35817d8863, type: 2}
+      name: foglie_3
+    second: {fileID: 2100000, guid: d9e766a8835226f448d2e1ca0b3cc1c5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: vaso_2
-    second: {fileID: 2100000, guid: 26bfb55f70a5d0d42b0acea32159ff5d, type: 2}
+      name: vaso_3
+    second: {fileID: 2100000, guid: e4130c982d88d494f9cb73f080288a5b, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: foglia_alpha
-    second: {fileID: 2800000, guid: ebcf4b61d339912458c14234cc63a2d3, type: 3}
+      name: foglia alpha
+    second: {fileID: 2800000, guid: edde29063297e87469026565f6fdf387, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: foglia_diffuse
-    second: {fileID: 2800000, guid: 8925ba7d2c4328745bef7de3ab497ba6, type: 3}
+      name: foglia diffuse
+    second: {fileID: 2800000, guid: 0f95af8db5c618546a1e8e476d164cf6, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: vaso 2_standardSurface1_BaseColor
-    second: {fileID: 2800000, guid: 1e8743b7b122b8a488494f50a410c96e, type: 3}
+      name: vaso 3_standardSurface1_BaseColor
+    second: {fileID: 2800000, guid: b10b3e54b1130c44db0053ddf8fe2cac, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: vaso 2_standardSurface1_Roughness
-    second: {fileID: 2800000, guid: 2ab4502a07b41614187d4e170f8f8ff4, type: 3}
+      name: vaso 3_standardSurface1_Roughness
+    second: {fileID: 2800000, guid: baaa7df1bfd15e643911206e4ae0259c, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

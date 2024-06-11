@@ -5,6 +5,11 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bagni1
+    second: {fileID: 2100000, guid: a78fed0d49ab5d041af07045cc6b4c7a, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: bagni_standardSurface1_BaseColor
