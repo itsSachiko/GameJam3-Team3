@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 979c698933382684f91f4b14de90f2cc
+guid: 4aa673b1dd99a174cb96230c3898b0f2
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,33 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: seconda_foglia
-    second: {fileID: 2100000, guid: 9720e519462caa54e85aac35817d8863, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: vaso_2
-    second: {fileID: 2100000, guid: 26bfb55f70a5d0d42b0acea32159ff5d, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: foglia_alpha
-    second: {fileID: 2800000, guid: ebcf4b61d339912458c14234cc63a2d3, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: foglia_diffuse
-    second: {fileID: 2800000, guid: 8925ba7d2c4328745bef7de3ab497ba6, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: vaso 2_standardSurface1_BaseColor
-    second: {fileID: 2800000, guid: 1e8743b7b122b8a488494f50a410c96e, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: vaso 2_standardSurface1_Roughness
-    second: {fileID: 2800000, guid: 2ab4502a07b41614187d4e170f8f8ff4, type: 3}
+      name: aiStandardSurface1
+    second: {fileID: 2100000, guid: 5124020ff7b8b0b43ba7fd4d297b8780, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -65,7 +40,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.01
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -120,7 +95,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.01
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
