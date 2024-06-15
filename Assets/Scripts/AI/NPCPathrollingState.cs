@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NPCPathrollingState : NPCBaseState
@@ -10,6 +11,8 @@ public class NPCPathrollingState : NPCBaseState
     public int i = 0;
     long timer;
     long currentTime;
+
+
 
     public long GetCurrentTime()
     {

@@ -29,6 +29,7 @@ public class NPCAlarmedState : NPCBaseState
 
     public override void UpdateState(NPCStateManager NPC)
     {
+        Debug.Log("alarmedstate");
         timer = GetCurrentTime() + (long)NPC.delay;
     }
 }

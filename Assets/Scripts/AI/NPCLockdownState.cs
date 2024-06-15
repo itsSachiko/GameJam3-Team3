@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCLockdownState : MonoBehaviour
+public class NPCLockdownState : NPCBaseState
 {
-    // Start is called before the first frame update
-    void Start()
+
+
+    public override void EnterState(NPCStateManager NPC)
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnEnter(NPCStateManager NPC)
     {
-        
+    }
+
+    public override void UpdateState(NPCStateManager NPC)
+    {
+        Debug.Log("locdown update ");
     }
 }
