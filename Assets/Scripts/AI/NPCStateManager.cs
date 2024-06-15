@@ -86,6 +86,7 @@ public class NPCStateManager : MonoBehaviour
                 if (collider[i].gameObject.GetComponent<PlayerController>()== other.gameObject.GetComponent<PlayerController>())
                 {
                     Lock();
+                    return;
                 }
             }
             SwitchState(alarmedState);
