@@ -38,9 +38,7 @@ public class NPCStateManager : MonoBehaviour
 
     private void EveryoneLock()
     {
-        agent.speed = lockSpeed;
-        agent.isStopped = false;
-        GameManager.Instance.time = 60;
+        SwitchState(lockdownState);
     }
 
     private void Start()
@@ -95,7 +93,6 @@ public class NPCStateManager : MonoBehaviour
             }
             SwitchState(alarmedState);
         }
-
     }
 
 
