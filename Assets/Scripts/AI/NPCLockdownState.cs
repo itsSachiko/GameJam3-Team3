@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCLockdownState : NPCBaseState
+public class NPCLockdownState : NPCPathrollingState
 {
 
 
@@ -16,6 +16,10 @@ public class NPCLockdownState : NPCBaseState
 
     public override void UpdateState(NPCStateManager NPC)
     {
-        Debug.Log("locdown update ");
+        NPC.agent.speed = NPC.lockSpeed;
+        NPC.agent.isStopped = false;
+        base.UpdateState(NPC);
+
+
     }
 }

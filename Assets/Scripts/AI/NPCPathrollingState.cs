@@ -8,9 +8,9 @@ using UnityEngine;
 public class NPCPathrollingState : NPCBaseState
 {
 
-    public int i = 0;
-    long timer;
-    long currentTime;
+    protected int i = 0;
+    protected long timer;
+    protected long currentTime;
 
 
 
@@ -23,7 +23,7 @@ public class NPCPathrollingState : NPCBaseState
     public override void EnterState(NPCStateManager NPC)
     {
         currentTime = GetCurrentTime();
-        timer = currentTime + (long)NPC.delay;
+        timer = currentTime + (long)NPC.stopTime;
     }
 
     public override void OnEnter(NPCStateManager NPC)
@@ -35,20 +35,20 @@ public class NPCPathrollingState : NPCBaseState
     {
         if (GetCurrentTime() >= timer)
         {
-            timer = GetCurrentTime() + (long)NPC.delay;
-            if (Vector3.Distance(NPC.transform.position, NPC.transforms[i].position) > 0.1f)
+            timer = GetCurrentTime() + (long)NPC.stopTime;
+            if (Vector3.Distance(NPC.transform.position, NPC.checkpoints[i].position) > 0.1f)
             {
-                NPC.agent.SetDestination(NPC.transforms[i].position);
+                NPC.agent.SetDestination(NPC.checkpoints[i].position);
             }
-            else if (i < NPC.transforms.Count - 1)
+            else if (i < NPC.checkpoints.Count - 1)
             {
                 i++;
-                NPC.agent.SetDestination(NPC.transforms[i].position);
+                NPC.agent.SetDestination(NPC.checkpoints[i].position);
             }
             else
             {
                 i = 0;
-                NPC.agent.SetDestination(NPC.transforms[i].position);
+                NPC.agent.SetDestination(NPC.checkpoints[i].position);
             }
         }
     }

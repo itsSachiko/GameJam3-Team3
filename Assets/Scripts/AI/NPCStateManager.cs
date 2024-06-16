@@ -6,13 +6,15 @@ using UnityEngine.AI;
 public class NPCStateManager : MonoBehaviour
 {
     [Header("Game Design")]
-    [SerializeField,Range(-1,1)] float view;
-    [SerializeField]float blueRange;
+    [SerializeField,Range(-1,1)] float fieldOfView;
+    [SerializeField]float closeRange;
     [SerializeField] float alarmedRange;
-    [SerializeField] public float delay;
-    public List<Transform> transforms = new List<Transform>();
+    [SerializeField] public float stopTime;
+    public List<Transform> checkpoints = new List<Transform>();
+    public float lockSpeed;
 
 
+    [Header("Ignore this")]
     public NavMeshAgent agent;
     NPCBaseState currentState;
     public NPCIdleState idleState=new NPCIdleState();
@@ -36,7 +38,9 @@ public class NPCStateManager : MonoBehaviour
 
     private void EveryoneLock()
     {
-        SwitchState(lockdownState);
+        agent.speed = lockSpeed;
+        agent.isStopped = false;
+        GameManager.Instance.time = 60;
     }
 
     private void Start()
@@ -59,7 +63,7 @@ public class NPCStateManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= view)
+        if (Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView)
         {
             agent.isStopped = true;
             SwitchState(alarmedState);
@@ -67,7 +71,7 @@ public class NPCStateManager : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.GetComponent<PlayerController>() != null && Vector3.Distance(transform.position, other.transform.position) <= blueRange)
+        if (other.gameObject.GetComponent<PlayerController>() != null && Vector3.Distance(transform.position, other.transform.position) <= closeRange)
         {
             agent.isStopped=true;
             //check che il player abbia larma ecc nell inventario
@@ -76,10 +80,10 @@ public class NPCStateManager : MonoBehaviour
 
         //idangerous=script del corpo del bersaglio o qualsiasi altra cosa che triggeri alarmedstate
 
-        if (other.gameObject.GetComponent<IDangerous>() != null&&Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= view)
+        if (other.gameObject.GetComponent<IDangerous>() != null&&Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView)
         {
             agent.isStopped = true;
-            Collider[] collider = Physics.OverlapSphere(transform.position,alarmedRange,mask);
+            Collider[] collider = Physics.OverlapSphere(other.transform.position,alarmedRange,mask);
             for(int i = 0;i<collider.Length;i++)
             {
                 Debug.Log(collider[i]);
@@ -100,8 +104,8 @@ public class NPCStateManager : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.black;
-        Gizmos.DrawRay(transform.position, Quaternion.Euler(0, (view*90)-90,0) * transform.forward*3f);
-        Gizmos.DrawRay(transform.position, Quaternion.Euler(0, (view *-90)+90, 0) * transform.forward*3f);
+        Gizmos.DrawRay(transform.position, Quaternion.Euler(0, (fieldOfView*90)-90,0) * transform.forward*3f);
+        Gizmos.DrawRay(transform.position, Quaternion.Euler(0, (fieldOfView *-90)+90, 0) * transform.forward*3f);
     }
 
 }
