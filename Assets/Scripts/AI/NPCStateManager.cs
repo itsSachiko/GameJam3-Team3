@@ -8,23 +8,23 @@ public class NPCStateManager : MonoBehaviour
     [Header("Game Design")]
     [SerializeField,Range(-1,1)] float fieldOfView;
     [SerializeField]float closeRange;
-    [SerializeField] float alarmedRange;
+    [SerializeField]float alarmedRange;
     [SerializeField] public float stopTime;
     public List<Transform> checkpoints = new List<Transform>();
     public float lockSpeed;
 
 
     [Header("Ignore this")]
-    public NavMeshAgent agent;
+    public Vector3 spottedPos;
     NPCBaseState currentState;
     public NPCIdleState idleState=new NPCIdleState();
     public NPCPathrollingState pathState = new NPCPathrollingState();
     public NPCAlarmedState alarmedState = new NPCAlarmedState();
     public NPCLockdownState lockdownState = new NPCLockdownState();
-
-
     public delegate void NPCState();
     public static event NPCState Lock;
+
+    public NavMeshAgent agent;
     public LayerMask mask;
 
     private void OnEnable()
@@ -64,6 +64,7 @@ public class NPCStateManager : MonoBehaviour
         if (Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView)
         {
             agent.isStopped = true;
+            spottedPos=other.transform.position;
             SwitchState(alarmedState);
         }
     }
@@ -85,7 +86,7 @@ public class NPCStateManager : MonoBehaviour
             for(int i = 0;i<collider.Length;i++)
             {
                 Debug.Log(collider[i]);
-                if (collider[i].gameObject.GetComponent<PlayerController>()== other.gameObject.GetComponent<PlayerController>())
+                if (collider[i].gameObject.GetComponent<PlayerController>())
                 {
                     Lock();
                     return;
@@ -93,6 +94,7 @@ public class NPCStateManager : MonoBehaviour
             }
             SwitchState(alarmedState);
         }
+
     }
 
 

@@ -328,49 +328,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: stopTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: blueRange
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: lockSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: closeRange
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: fieldOfView
-      value: 0.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: mask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: alarmedRange
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: checkpoints.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: transforms.Array.data[0]
+      propertyPath: agent
       value: 
-      objectReference: {fileID: 1115151056}
-    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: transforms.Array.data[1]
-      value: 
-      objectReference: {fileID: 1587399552}
-    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: transforms.Array.data[2]
-      value: 
-      objectReference: {fileID: 1410642556}
+      objectReference: {fileID: 0}
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: checkpoints.Array.data[0]
       value: 
@@ -383,18 +343,6 @@ PrefabInstance:
       propertyPath: checkpoints.Array.data[2]
       value: 
       objectReference: {fileID: 1410642556}
-    - target: {fileID: 5808574667603383662, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: m_Radius
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5808574667603383662, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 5808574667603383662, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: m_IncludeLayers.m_Bits
-      value: 192
-      objectReference: {fileID: 0}
     - target: {fileID: 7239531152641681303, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: m_Name
       value: NPC (1)
@@ -1106,26 +1054,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: view
-      value: 0.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: checkpoints.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: transforms.Array.data[0]
-      value: 
-      objectReference: {fileID: 1344787518}
-    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: transforms.Array.data[1]
-      value: 
-      objectReference: {fileID: 1957658717}
-    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
-      propertyPath: transforms.Array.data[2]
-      value: 
-      objectReference: {fileID: 777047382}
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: checkpoints.Array.data[0]
       value: 
