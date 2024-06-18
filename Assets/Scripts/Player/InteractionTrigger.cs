@@ -6,8 +6,8 @@ using UnityEngine;
 public class InteractionTrigger : MonoBehaviour, IInteractor
 {
     bool isInteracting;
-    public Action Interacted;
-
+    public static Action<IInteractable> Interacted;
+    IInteractable interactable;
 
     private void OnEnable()
     {
@@ -23,12 +23,13 @@ public class InteractionTrigger : MonoBehaviour, IInteractor
         if (isInteracting)
         {
             Debug.Log("inserito nell'inventario");
+            Interacted?.Invoke(interactable);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<IInteractable>(out var x))
+        if (other.TryGetComponent<IInteractable>(out interactable))
         {
             isInteracting = true; 
 
@@ -37,7 +38,7 @@ public class InteractionTrigger : MonoBehaviour, IInteractor
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent<IInteractable>(out var x))
+        if (other.TryGetComponent<IInteractable>(out interactable))
         {
             isInteracting = false;
 

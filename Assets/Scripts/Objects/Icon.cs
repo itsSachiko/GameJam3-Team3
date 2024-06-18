@@ -7,9 +7,10 @@ public class Icon : MonoBehaviour
 {
 
     [SerializeField] GameObject icon;
+    IInteractor interactor;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<IInteractor>(out var x))
+        if (other.TryGetComponent<IInteractor>(out interactor))
         {
             icon.SetActive(true);
         }
@@ -17,8 +18,9 @@ public class Icon : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent<IInteractor>(out var x))
+        if (interactor != null)
         {
+            interactor = null;
             icon.SetActive(false);
         }
     }
