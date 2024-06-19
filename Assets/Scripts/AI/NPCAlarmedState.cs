@@ -31,5 +31,7 @@ public class NPCAlarmedState : NPCBaseState
     {
         Debug.Log("alarmedstate");
         timer = GetCurrentTime() + (long)NPC.stopTime;
+        Vector3 target = new Vector3(NPC.spottedPos.x,NPC.spottedPos.y,NPC.spottedPos.z);
+        NPC.agent.SetDestination(target);
     }
 }
