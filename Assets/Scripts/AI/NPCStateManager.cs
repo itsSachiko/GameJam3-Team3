@@ -39,6 +39,7 @@ public class NPCStateManager : MonoBehaviour
 
     private void EveryoneLock()
     {
+        GameManager.Instance.time = GameManager.Instance.LockDownTime;
         SwitchState(lockdownState);
     }
 
@@ -55,7 +56,7 @@ public class NPCStateManager : MonoBehaviour
     }
 
 
-    private void Update()
+    private void FixedUpdate()
     {
         currentState.UpdateState(this);
     }
@@ -76,7 +77,6 @@ public class NPCStateManager : MonoBehaviour
             Collider[] collider = Physics.OverlapSphere(other.transform.position, alarmedRange, mask);
             for (int i = 0; i < collider.Length; i++)
             {
-                Debug.Log(collider[i]);
                 if (collider[i].gameObject.GetComponent<PlayerController>())
                 {
                     OnBodyFound();
