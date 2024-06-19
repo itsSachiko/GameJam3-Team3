@@ -9,21 +9,13 @@ public class NPCPathrollingState : NPCBaseState
 {
 
     protected int i = 0;
-    protected long timer;
-    protected long currentTime;
+    protected float timer;
 
 
 
-    public long GetCurrentTime()
-    {
-        DateTimeOffset now = DateTimeOffset.UtcNow;
-        long unixTimestamp = now.ToUnixTimeSeconds();
-        return unixTimestamp;
-    }
     public override void EnterState(NPCStateManager NPC)
     {
-        currentTime = GetCurrentTime();
-        timer = currentTime + (long)NPC.stopTime;
+        timer = Time.time + NPC.stopTime;
     }
 
     public override void OnEnter(NPCStateManager NPC)
@@ -33,9 +25,9 @@ public class NPCPathrollingState : NPCBaseState
 
     public override void UpdateState(NPCStateManager NPC)
     {
-        if (GetCurrentTime() >= timer)
+        if (Time.time >= timer)
         {
-            timer = GetCurrentTime() + (long)NPC.stopTime;
+            timer = Time.time + NPC.stopTime;
             if (Vector3.Distance(NPC.transform.position, NPC.checkpoints[i].position) > 0.1f)
             {
                 NPC.agent.SetDestination(NPC.checkpoints[i].position);

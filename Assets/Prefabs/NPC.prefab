@@ -70,15 +70,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7b10c12e0a1c948b7b9bacdc77aeff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  view: 0.6
-  blueRange: 2
-  alarmedRange: 0
-  delay: 3
-  transforms:
+  fieldOfView: 0.44
+  closeRange: 1
+  alarmedRange: 3
+  stopTime: 1
+  checkpoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  lockSpeed: 4
   agent: {fileID: 2838934672206925615}
+  mask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!135 &5808574667603383662
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -89,7 +93,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 55

@@ -8,39 +8,38 @@ public class NPCStateManager : MonoBehaviour
     [Header("Game Design")]
     [SerializeField,Range(-1,1)] float fieldOfView;
     [SerializeField]float closeRange;
-    [SerializeField] float alarmedRange;
     [SerializeField] public float stopTime;
     public List<Transform> checkpoints = new List<Transform>();
     public float lockSpeed;
-
+    public float alarmedRange;
+    public float alarmedTime;
 
     [Header("Ignore this")]
-    public NavMeshAgent agent;
+    public Vector3 spottedPos;
     NPCBaseState currentState;
     public NPCIdleState idleState=new NPCIdleState();
     public NPCPathrollingState pathState = new NPCPathrollingState();
     public NPCAlarmedState alarmedState = new NPCAlarmedState();
     public NPCLockdownState lockdownState = new NPCLockdownState();
+    public delegate void NPCSDelegate();
+    public static NPCSDelegate OnBodyFound;
 
-
-    public delegate void NPCState();
-    public static event NPCState Lock;
+    public NavMeshAgent agent;
     public LayerMask mask;
+    bool isPanic=false;
 
     private void OnEnable()
     {
-        Lock += EveryoneLock;
+        NPCStateManager.OnBodyFound += EveryoneLock;
     }
     private void OnDisable()
     {
-        Lock -= EveryoneLock;
+        NPCStateManager.OnBodyFound -= EveryoneLock;
     }
 
     private void EveryoneLock()
     {
-        agent.speed = lockSpeed;
-        agent.isStopped = false;
-        GameManager.Instance.time = 60;
+        SwitchState(lockdownState);
     }
 
     private void Start()
@@ -63,41 +62,40 @@ public class NPCStateManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView)
+        if (Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView&&!isPanic)
         {
-            agent.isStopped = true;
+            isPanic = true;
+            agent.SetDestination(transform.position);
+            spottedPos=other.transform.position;
             SwitchState(alarmedState);
         }
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.GetComponent<PlayerController>() != null && Vector3.Distance(transform.position, other.transform.position) <= closeRange)
+        if (other.gameObject.GetComponent<IDangerous>() != null && Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView&&!isPanic)
         {
-            agent.isStopped=true;
-            //check che il player abbia larma ecc nell inventario
-            SwitchState(alarmedState);
-        }
-
-        //idangerous=script del corpo del bersaglio o qualsiasi altra cosa che triggeri alarmedstate
-
-        if (other.gameObject.GetComponent<IDangerous>() != null&&Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView)
-        {
+            isPanic = true;
             agent.isStopped = true;
-            Collider[] collider = Physics.OverlapSphere(other.transform.position,alarmedRange,mask);
-            for(int i = 0;i<collider.Length;i++)
+            Collider[] collider = Physics.OverlapSphere(other.transform.position, alarmedRange, mask);
+            for (int i = 0; i < collider.Length; i++)
             {
                 Debug.Log(collider[i]);
-                if (collider[i].gameObject.GetComponent<PlayerController>()== other.gameObject.GetComponent<PlayerController>())
+                if (collider[i].gameObject.GetComponent<PlayerController>())
                 {
-                    Lock();
+                    OnBodyFound();
                     return;
                 }
             }
             SwitchState(alarmedState);
         }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other)
+        {
+
+        }
+
+
 
     }
-
 
 
 
