@@ -22,13 +22,11 @@ public class NPCAlarmedState : NPCBaseState
 
     public override void UpdateState(NPCStateManager NPC)
     {
-        Debug.Log(alarmTime-Time.time);
         if(Time.time>=alarmTime)
         {
             NPC.SwitchState(NPC.lockdownState);
             NPCStateManager.OnBodyFound();
         }
-        Debug.Log("alarmedstate");
         if (Time.time >= stopTimer)
         {
             stopTimer =Time.time+ NPC.stopTime;

@@ -39,6 +39,7 @@ public class NPCStateManager : MonoBehaviour
 
     private void EveryoneLock()
     {
+        GameManager.Instance.time = GameManager.Instance.LockDownTime;
         SwitchState(lockdownState);
     }
 
@@ -55,7 +56,7 @@ public class NPCStateManager : MonoBehaviour
     }
 
 
-    private void Update()
+    private void FixedUpdate()
     {
         currentState.UpdateState(this);
     }
@@ -69,14 +70,13 @@ public class NPCStateManager : MonoBehaviour
             spottedPos=other.transform.position;
             SwitchState(alarmedState);
         }
-        if (other.gameObject.GetComponent<IDangerous>() != null && Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView&&!isPanic)
+        if (other.gameObject.GetComponent<IDangerous>() != null && Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView)
         {
             isPanic = true;
             agent.isStopped = true;
             Collider[] collider = Physics.OverlapSphere(other.transform.position, alarmedRange, mask);
             for (int i = 0; i < collider.Length; i++)
             {
-                Debug.Log(collider[i]);
                 if (collider[i].gameObject.GetComponent<PlayerController>())
                 {
                     OnBodyFound();
@@ -85,16 +85,6 @@ public class NPCStateManager : MonoBehaviour
             }
             SwitchState(alarmedState);
         }
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other)
-        {
-
-        }
-
-
-
     }
 
 
