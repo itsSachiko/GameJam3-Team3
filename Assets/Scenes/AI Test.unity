@@ -330,6 +330,14 @@ PrefabInstance:
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: agent
       value: 
+      objectReference: {fileID: 1702501098}
+    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
+      propertyPath: stopTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
+      propertyPath: alarmedTime
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: checkpoints.Array.data[0]
@@ -723,6 +731,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 359108551032458531, guid: 04770d7f4174b784b8cc6319296b5406, type: 3}
   m_PrefabInstance: {fileID: 1587399551}
   m_PrefabAsset: {fileID: 0}
+--- !u!195 &1702501098 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 2838934672206925615, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
+  m_PrefabInstance: {fileID: 919297082}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1945894496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,6 +1013,10 @@ PrefabInstance:
     - target: {fileID: 3341533898972550696, guid: 5423af8a5f7d313448d8d6ec77709d08, type: 3}
       propertyPath: m_Name
       value: Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341533898972550696, guid: 5423af8a5f7d313448d8d6ec77709d08, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
