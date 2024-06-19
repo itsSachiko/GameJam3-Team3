@@ -70,7 +70,7 @@ public class NPCStateManager : MonoBehaviour
             spottedPos=other.transform.position;
             SwitchState(alarmedState);
         }
-        if (other.gameObject.GetComponent<IDangerous>() != null && Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView&&!isPanic)
+        if (other.gameObject.GetComponent<IDangerous>() != null && Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView)
         {
             isPanic = true;
             agent.isStopped = true;
@@ -85,16 +85,6 @@ public class NPCStateManager : MonoBehaviour
             }
             SwitchState(alarmedState);
         }
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other)
-        {
-
-        }
-
-
-
     }
 
 

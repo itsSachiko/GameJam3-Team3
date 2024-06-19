@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public float time;
     public float LockDownTime;
+    [SerializeField] Canvas canvas;
 
 
     private void Awake()
@@ -31,6 +32,12 @@ public class GameManager : MonoBehaviour
     {
         time=time-Time.deltaTime;
         Debug.Log(time);
+        if(time<=0)
+        {
+            canvas.gameObject.SetActive(true);
+            MovementDisabled();
+            PauseTime(0);
+        }
     }
 
 
