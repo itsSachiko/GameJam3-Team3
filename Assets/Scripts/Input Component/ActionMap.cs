@@ -58,7 +58,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""name"": ""Inventory"",
                     ""type"": ""Value"",
                     ""id"": ""f83f893b-4900-4bf8-ac18-5eca1b1077a0"",
-                    ""expectedControlType"": ""Integer"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -147,7 +147,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""id"": ""e6a4c7c7-8189-4e47-bd31-be17af1058bb"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Clamp(min=-1,max=1)"",
                     ""groups"": """",
                     ""action"": ""Inventory"",
                     ""isComposite"": true,

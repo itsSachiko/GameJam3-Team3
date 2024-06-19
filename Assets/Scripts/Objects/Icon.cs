@@ -8,6 +8,19 @@ public class Icon : MonoBehaviour
 
     [SerializeField] GameObject icon;
     IInteractor interactor;
+
+    public static Action OnIconDisabled;
+
+    private void OnEnable()
+    {
+        OnIconDisabled += IconDisabled;
+    }
+
+    private void IconDisabled()
+    {
+        icon.SetActive(false);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<IInteractor>(out interactor))

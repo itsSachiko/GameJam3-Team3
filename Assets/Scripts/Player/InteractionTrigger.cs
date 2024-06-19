@@ -6,7 +6,7 @@ using UnityEngine;
 public class InteractionTrigger : MonoBehaviour, IInteractor
 {
     bool isInteracting;
-    public static Action<IInteractable> Interacted;
+    public static Action<IPickable> Interacted;
     IInteractable interactable;
 
     private void OnEnable()
@@ -23,7 +23,10 @@ public class InteractionTrigger : MonoBehaviour, IInteractor
         if (isInteracting)
         {
             Debug.Log("inserito nell'inventario");
-            Interacted?.Invoke(interactable);
+            //Interacted?.Invoke(interactable);
+            interactable.OnInteract?.Invoke();
+            interactable = null;
+            isInteracting = false;
         }
     }
 
@@ -44,6 +47,4 @@ public class InteractionTrigger : MonoBehaviour, IInteractor
 
         }
     }
-
-
 }

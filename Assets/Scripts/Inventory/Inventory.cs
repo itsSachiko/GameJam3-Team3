@@ -6,8 +6,11 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [HideInInspector] public IInteractable[] inventory = new IInteractable[2];
+    [HideInInspector] public IPickable[] inventory = new IPickable[2];
     int currentInvSlot;
+
+    public static Action<IPickable, int> OnInventoryChanged;
+    public static Action<int> OnSlotChanged;
 
     [Header("inserite le due mani")]
     [SerializeField] Transform[] hands;
@@ -26,7 +29,8 @@ public class Inventory : MonoBehaviour
 
     private void ChangeSlot(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        int value = context.ReadValue<int>();
+        float value = context.ReadValue<float>();
+
         if(value == 1)
         {
             currentInvSlot++;
@@ -44,10 +48,23 @@ public class Inventory : MonoBehaviour
                 currentInvSlot = inventory.Length - 1;
             }
         }
+        OnSlotChanged?.Invoke(currentInvSlot);
     }
 
-    public void Grab(IInteractable interactable)
+    public void Grab(IPickable interactable)
     {
+        if (inventory[currentInvSlot] == null)
+        {
+            inventory[currentInvSlot] = interactable;
+            interactable.myTransform.TryGetComponent(out Collider coll);
+            coll.enabled = false;
+            
+            interactable.myTransform.parent = hands[currentInvSlot].transform;
+            interactable.myTransform.position = hands[currentInvSlot].position;
+
+            OnInventoryChanged?.Invoke(interactable,currentInvSlot);
+            return;
+        }
         for (int i = 0; i < inventory.Length; i++)
         {
             if (inventory[i] == null)
@@ -58,6 +75,7 @@ public class Inventory : MonoBehaviour
                 //interactable.myTransform.position = Vector3.up * 1000;
                 interactable.myTransform.parent = hands[i].transform;
                 interactable.myTransform.position = hands[i].position;
+                OnInventoryChanged?.Invoke(interactable, i);
             }
         }
     }

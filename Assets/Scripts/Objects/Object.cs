@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Object : Item, IDangerous, IInteractable
+public class Object : Item, IDangerous, IPickable
 {
 
 }
