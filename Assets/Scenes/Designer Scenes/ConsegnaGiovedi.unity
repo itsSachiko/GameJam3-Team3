@@ -43282,7 +43282,7 @@ PrefabInstance:
       objectReference: {fileID: 1065336327}
     - target: {fileID: 2145944270548573012, guid: 14ccfb457baff6e429adffece94d3cb0, type: 3}
       propertyPath: LockDownTime
-      value: 120
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6096680163489896691, guid: 14ccfb457baff6e429adffece94d3cb0, type: 3}
       propertyPath: m_LocalPosition.x
