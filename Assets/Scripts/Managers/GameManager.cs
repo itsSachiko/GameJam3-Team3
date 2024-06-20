@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,13 +9,15 @@ public class GameManager : MonoBehaviour
     public float time;
     public float LockDownTime;
     [SerializeField] Canvas canvas;
-
+    [SerializeField] TMP_Text text;
 
     private void Awake()
     {
         Instance = this;
         if (Instance == null)
             Instance = this;
+        PauseTime(1);
+        MovementEnabled();
     }
     void MovementDisabled()
     {
@@ -31,6 +34,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         time=time-Time.deltaTime;
+        text.text =time.ToString();
         Debug.Log(time);
         if(time<=0)
         {

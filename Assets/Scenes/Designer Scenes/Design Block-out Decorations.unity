@@ -76368,7 +76368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1791090312232158074, guid: 5ca935a0480e12e459d626d897cb7a8d, type: 3}
       propertyPath: m_Name
-      value: Descorations
+      value: Decorations
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
