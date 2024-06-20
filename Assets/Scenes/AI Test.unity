@@ -1329,7 +1329,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 654746909}
         m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
-        m_MethodName: Start
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
