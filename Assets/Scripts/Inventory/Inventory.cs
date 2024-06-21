@@ -6,10 +6,12 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [HideInInspector] public IPickable[] inventory = new IPickable[2];
-    int currentInvSlot;
+    [HideInInspector]public int currentInvSlot;
 
     public static Action<IPickable, int> OnInventoryChanged;
     public static Action<int> OnSlotChanged;
+
+    public static Action<IInteractable> OnInteract;
 
     [Header("inserite le due mani")]
     [SerializeField] Transform[] hands;
@@ -18,12 +20,19 @@ public class Inventory : MonoBehaviour
     {
         InputManager.ActionMap.Player.Inventory.performed += ChangeSlot;
         InteractionTrigger.Interacted += Grab;
+        OnInteract += Interaction;
     }
 
     private void OnDisable()
     {
         InputManager.ActionMap.Player.Inventory.performed -= ChangeSlot;
         InteractionTrigger.Interacted -= Grab;
+        OnInteract -= Interaction;
+    }
+
+    private void Interaction(IInteractable item)
+    {
+        item.OnInteract?.Invoke(this);
     }
 
     private void ChangeSlot(UnityEngine.InputSystem.InputAction.CallbackContext context)
@@ -62,6 +71,7 @@ public class Inventory : MonoBehaviour
             interactable.myTransform.position = hands[currentInvSlot].position;
 
             OnInventoryChanged?.Invoke(interactable,currentInvSlot);
+            interactable.OnCompletedInteraction?.Invoke();
             return;
         }
         for (int i = 0; i < inventory.Length; i++)
@@ -75,6 +85,7 @@ public class Inventory : MonoBehaviour
                 interactable.myTransform.parent = hands[i].transform;
                 interactable.myTransform.position = hands[i].position;
                 OnInventoryChanged?.Invoke(interactable, i);
+                interactable.OnCompletedInteraction?.Invoke();
             }
         }
     }

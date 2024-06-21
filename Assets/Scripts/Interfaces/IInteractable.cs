@@ -6,13 +6,15 @@ using UnityEngine;
 public interface IInteractable
 {
     public Transform myTransform { get; set; }
-    public Action OnInteract { get; set; }
+    public Action<Inventory> OnInteract { get; set; }
+
+    public Action OnCompletedInteraction { get; set; }
 }
 
 public interface IPickable : IInteractable
 {
     public Item slot { get; set; }
-    public Action OnPickup {  get; set; }   
+    public Action OnPickup {  get; set; }
 
 }
 

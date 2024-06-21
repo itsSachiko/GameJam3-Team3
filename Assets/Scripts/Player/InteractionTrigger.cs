@@ -24,7 +24,7 @@ public class InteractionTrigger : MonoBehaviour, IInteractor
         {
             Debug.Log("inserito nell'inventario");
             //Interacted?.Invoke(interactable);
-            interactable.OnInteract?.Invoke();
+            Inventory.OnInteract?.Invoke(interactable);
             interactable = null;
             isInteracting = false;
         }
