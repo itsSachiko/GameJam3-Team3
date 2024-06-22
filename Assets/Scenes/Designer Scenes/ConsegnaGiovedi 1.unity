@@ -21641,6 +21641,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
+      propertyPath: lockdownTime
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: checkpoints.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -25511,6 +25515,10 @@ PrefabInstance:
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: alarmedRange
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
+      propertyPath: lockdownTime
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: checkpoints.Array.data[0]
@@ -33187,6 +33195,10 @@ PrefabInstance:
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: alarmedRange
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
+      propertyPath: lockdownTime
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: checkpoints.Array.data[0]
@@ -61363,6 +61375,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
+      propertyPath: lockdownTime
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: checkpoints.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -62661,6 +62677,10 @@ PrefabInstance:
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: alarmedRange
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
+      propertyPath: lockdownTime
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: checkpoints.Array.size
@@ -64965,6 +64985,10 @@ PrefabInstance:
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: alarmedRange
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
+      propertyPath: lockdownTime
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: checkpoints.Array.size
@@ -68638,6 +68662,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
+      propertyPath: lockdownTime
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: checkpoints.Array.data[0]
       value: 
       objectReference: {fileID: 898071070}
@@ -70558,6 +70586,10 @@ PrefabInstance:
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: alarmedRange
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
+      propertyPath: lockdownTime
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: checkpoints.Array.size
@@ -72689,6 +72721,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
+      propertyPath: lockdownTime
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: checkpoints.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -72994,6 +73030,10 @@ PrefabInstance:
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: alarmedRange
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
+      propertyPath: lockdownTime
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: checkpoints.Array.data[0]
@@ -73812,6 +73852,10 @@ PrefabInstance:
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: alarmedRange
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
+      propertyPath: lockdownTime
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4110871248535796225, guid: fc13f50f1c6f501428de532c4a9510c4, type: 3}
       propertyPath: checkpoints.Array.size

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/Designer Scenes/ConsegnaGiovedi 1.unity
+    guid: a0e6c0f713de41b47beff9e4e821d87f
+  - enabled: 0
     path: Assets/Scenes/Designer Scenes/ConsegnaGiovedi.unity
     guid: 07b09c29d2732484ba13439331eae2fe
   - enabled: 0

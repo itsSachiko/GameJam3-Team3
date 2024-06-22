@@ -13,6 +13,8 @@ public class NPCStateManager : MonoBehaviour
     public float lockSpeed;
     public float alarmedRange;
     public float alarmedTime;
+    public float lockdownTime;
+    public bool isGuard;
 
     [Header("Ignore this")]
     public Vector3 spottedPos;
@@ -27,6 +29,7 @@ public class NPCStateManager : MonoBehaviour
     public NavMeshAgent agent;
     public LayerMask mask;
     bool isPanic=false;
+    bool isLockDown=false;
 
     private void OnEnable()
     {
@@ -39,8 +42,16 @@ public class NPCStateManager : MonoBehaviour
 
     private void EveryoneLock()
     {
-        GameManager.Instance.time = GameManager.Instance.LockDownTime;
-        SwitchState(lockdownState);
+        if(!isLockDown)
+        {
+            isLockDown = true;
+            GameManager.Instance.time = lockdownTime;
+            SwitchState(lockdownState);
+        }
+        else if(isGuard)
+        {
+            GameManager.Instance.time = lockdownTime;
+        }
     }
 
     private void Start()
@@ -77,7 +88,7 @@ public class NPCStateManager : MonoBehaviour
             Collider[] collider = Physics.OverlapSphere(other.transform.position, alarmedRange, mask);
             for (int i = 0; i < collider.Length; i++)
             {
-                if (collider[i].gameObject.GetComponent<PlayerController>())
+                if (collider[i].gameObject.GetComponentInChildren<IDangerous>()!=null)
                 {
                     OnBodyFound();
                     return;
@@ -85,6 +96,13 @@ public class NPCStateManager : MonoBehaviour
             }
             SwitchState(alarmedState);
         }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.GetComponentInChildren<IDangerous>() != null && Vector3.Distance(transform.position,other.transform.position)<=closeRange)
+        {
+            SwitchState(alarmedState);
+        } 
     }
 
 

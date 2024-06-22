@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public float time;
-    public float LockDownTime;
     [SerializeField] Canvas canvas;
     [SerializeField] TMP_Text text;
 
@@ -16,8 +15,8 @@ public class GameManager : MonoBehaviour
         Instance = this;
         if (Instance == null)
             Instance = this;
-        PauseTime(1);
         MovementEnabled();
+        PauseTime(1f);
     }
     void MovementDisabled()
     {

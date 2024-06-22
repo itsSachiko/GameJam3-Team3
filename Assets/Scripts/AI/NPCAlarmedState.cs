@@ -24,7 +24,6 @@ public class NPCAlarmedState : NPCBaseState
     {
         if(Time.time>=alarmTime)
         {
-            NPC.SwitchState(NPC.lockdownState);
             NPCStateManager.OnBodyFound();
         }
         if (Time.time >= stopTimer)
