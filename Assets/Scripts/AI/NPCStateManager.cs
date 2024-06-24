@@ -91,7 +91,7 @@ public class NPCStateManager : MonoBehaviour
         {
             SwitchState(alarmedState);
         }
-        if (other.gameObject.GetComponentInChildren<Body>() != null && isGuard&&isLockDown)
+        if (other.gameObject.GetComponentInChildren<Body>() != null && isGuard&&!isLockDown)
         {
             isLockDown=true;
             GameManager.Instance.time =GameManager.Instance.lockedDownTime;
