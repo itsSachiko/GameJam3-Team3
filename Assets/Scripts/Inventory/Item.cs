@@ -14,40 +14,43 @@ public class Item : MonoBehaviour, IPickable
 
     public Action OnCompletedInteraction { get; set; }
 
+    public Action<int> OnUse { get; set; }
+
     public Sprite image;
 
-    Icon icon;
+    protected Icon icon;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         icon = GetComponent<Icon>();
         icon.OnIconChest?.Invoke(image);
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         OnPickup += OnPickedUp;
         OnInteract += OnInteracted;
     }
 
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         OnPickup -= OnPickedUp;
         OnInteract -= OnInteracted;
     }
-    private void OnInteracted(Inventory inv)
+    protected virtual void OnInteracted(Inventory inv)
     {
         InteractionTrigger.Interacted?.Invoke(this);
         OnPickup?.Invoke();
        
     }
-    private void OnPickedUp()
+    protected virtual void OnPickedUp()
     {
         Collider coll = GetComponent<Collider>();
         coll.enabled = false;
         Icon.OnIconDisabled?.Invoke();
     }
+
 
     //public void 
 }

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -31,13 +33,16 @@ public class NPCStateManager : MonoBehaviour
     bool isPanic=false;
     bool isLockDown=false;
 
+    public Action death;
     private void OnEnable()
     {
         NPCStateManager.OnBodyFound += EveryoneLock;
+        death += OnDeath;
     }
     private void OnDisable()
     {
         NPCStateManager.OnBodyFound -= EveryoneLock;
+        death -= OnDeath;
     }
 
     private void EveryoneLock()
@@ -54,6 +59,7 @@ public class NPCStateManager : MonoBehaviour
         }
     }
 
+   
     private void Start()
     {
         agent.GetComponent<NavMeshAgent>();
@@ -105,6 +111,10 @@ public class NPCStateManager : MonoBehaviour
         } 
     }
 
+    private void OnDeath()
+    {
+        //diventa cadavere
+    }
 
 
     private void OnDrawGizmos()

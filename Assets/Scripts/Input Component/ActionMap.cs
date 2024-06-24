@@ -62,6 +62,15 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Kill"",
+                    ""type"": ""Button"",
+                    ""id"": ""2eb66342-1a79-4b97-b55f-2d4d4d792ed9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -262,6 +271,17 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6f7cd95-2d44-4839-a99c-2e681388701e"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Kill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -274,6 +294,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
+        m_Player_Kill = m_Player.FindAction("Kill", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -339,6 +360,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Interaction;
     private readonly InputAction m_Player_Inventory;
+    private readonly InputAction m_Player_Kill;
     public struct PlayerActions
     {
         private @ActionMap m_Wrapper;
@@ -347,6 +369,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Interaction => m_Wrapper.m_Player_Interaction;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
+        public InputAction @Kill => m_Wrapper.m_Player_Kill;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -368,6 +391,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @Inventory.started += instance.OnInventory;
             @Inventory.performed += instance.OnInventory;
             @Inventory.canceled += instance.OnInventory;
+            @Kill.started += instance.OnKill;
+            @Kill.performed += instance.OnKill;
+            @Kill.canceled += instance.OnKill;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -384,6 +410,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @Inventory.started -= instance.OnInventory;
             @Inventory.performed -= instance.OnInventory;
             @Inventory.canceled -= instance.OnInventory;
+            @Kill.started -= instance.OnKill;
+            @Kill.performed -= instance.OnKill;
+            @Kill.canceled -= instance.OnKill;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -407,5 +436,6 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
+        void OnKill(InputAction.CallbackContext context);
     }
 }
