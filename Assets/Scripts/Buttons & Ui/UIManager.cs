@@ -5,10 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-
-    [SerializeField] GameObject creditsPanel;
-
-    public void OnPlay()
+    public void PlayGame()
     {
         SceneManager.LoadScene(1);
     }
@@ -17,13 +14,8 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
     }
-
-    public void OnReturnToMain()
+    public void BackToMainMenu()
     {
-        creditsPanel.SetActive(false);
-    }
-    public void OnShowCredits()
-    {
-        creditsPanel.SetActive(true);
+        SceneManager.LoadScene(0);
     }
 }
