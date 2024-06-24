@@ -13,6 +13,8 @@ public class Inventory : MonoBehaviour
 
     public static Action<IInteractable> OnInteract;
 
+    public static Action<int> OnItemRemoved;
+
     [Header("inserite le due mani")]
     [SerializeField] Transform[] hands;
 
@@ -21,6 +23,10 @@ public class Inventory : MonoBehaviour
         InputManager.ActionMap.Player.Inventory.performed += ChangeSlot;
         InteractionTrigger.Interacted += Grab;
         OnInteract += Interaction;
+
+        InputManager.ActionMap.Player.Kill.performed += UseItem;
+
+        OnItemRemoved += RemoveItem;
     }
 
     private void OnDisable()
@@ -28,6 +34,26 @@ public class Inventory : MonoBehaviour
         InputManager.ActionMap.Player.Inventory.performed -= ChangeSlot;
         InteractionTrigger.Interacted -= Grab;
         OnInteract -= Interaction;
+        InputManager.ActionMap.Player.Kill.performed -= UseItem;
+        OnItemRemoved -= RemoveItem;
+    }
+
+    private void RemoveItem(int obj)
+    {
+        inventory[obj] = null;
+        OnInventoryChanged?.Invoke(inventory[obj],obj);
+    }
+
+    private void UseItem(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        if (inventory[currentInvSlot] == null)
+        {
+            return;
+        }
+
+        inventory[currentInvSlot].OnUse?.Invoke(currentInvSlot);
+
+
     }
 
     private void Interaction(IInteractable item)

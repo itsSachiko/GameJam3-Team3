@@ -16,6 +16,7 @@ public interface IPickable : IInteractable
     public Item slot { get; set; }
     public Action OnPickup {  get; set; }
 
+    public Action<int> OnUse { get; set; }
 }
 
 public interface IChest : IInteractable
