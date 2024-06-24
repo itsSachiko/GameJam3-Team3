@@ -96,7 +96,7 @@ public class NPCStateManager : MonoBehaviour
             GameManager.Instance.time =GameManager.Instance.lockedDownTime;
         }
 
-        if (Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView&&!isPanic)
+        if (other.gameObject.GetComponentInChildren<IDangerous>() != null&&Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView&&!isPanic)
         {
             isPanic = true;
             agent.SetDestination(transform.position);
@@ -129,12 +129,11 @@ public class NPCStateManager : MonoBehaviour
 
     private void OnDeath()
     {
+        OnNpcDeath();
         if (isTarget)
         {
-            OnNpcDeath();
             GameManager.Instance.Counter++;
         }
-
         this.gameObject.SetActive(false);
         Instantiate(bodyBag,transform.position,Quaternion.identity);
     }

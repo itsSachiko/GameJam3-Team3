@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void WinCheck()
     {
-        if (Counter >= 4)
+        if (Counter ==4)
         {
             WinScreen.gameObject.SetActive(true);
             MovementDisabled();
