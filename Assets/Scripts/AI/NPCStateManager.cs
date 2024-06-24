@@ -17,6 +17,8 @@ public class NPCStateManager : MonoBehaviour
     public float alarmedTime;
     public float lockdownTime;
     public bool isGuard;
+    public bool isTarget;
+    [SerializeField] GameObject bodyBag;
 
     [Header("Ignore this")]
     public Vector3 spottedPos;
@@ -27,6 +29,11 @@ public class NPCStateManager : MonoBehaviour
     public NPCLockdownState lockdownState = new NPCLockdownState();
     public delegate void NPCSDelegate();
     public static NPCSDelegate OnBodyFound;
+
+    public delegate void NPCDeath();
+    public static NPCDeath OnNpcDeath;
+
+
 
     public NavMeshAgent agent;
     public LayerMask mask;
@@ -80,6 +87,15 @@ public class NPCStateManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.GetComponentInChildren<IDangerous>()!=null&&isGuard)
+        {
+            SwitchState(alarmedState);
+        }
+        if (other.gameObject.GetComponentInChildren<Body>() != null && isGuard)
+        {
+            GameManager.Instance.time =GameManager.Instance.lockedDownTime;
+        }
+
         if (Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView&&!isPanic)
         {
             isPanic = true;
@@ -87,7 +103,7 @@ public class NPCStateManager : MonoBehaviour
             spottedPos=other.transform.position;
             SwitchState(alarmedState);
         }
-        if (other.gameObject.GetComponent<IDangerous>() != null && Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView)
+        if (other.gameObject.GetComponent<Body>() != null && Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView&&!isGuard)
         {
             isPanic = true;
             agent.isStopped = true;
@@ -113,7 +129,14 @@ public class NPCStateManager : MonoBehaviour
 
     private void OnDeath()
     {
-        //diventa cadavere
+        if (isTarget)
+        {
+            OnNpcDeath();
+            GameManager.Instance.Counter++;
+        }
+
+        this.gameObject.SetActive(false);
+        Instantiate(bodyBag,transform.position,Quaternion.identity);
     }
 
 
@@ -124,4 +147,8 @@ public class NPCStateManager : MonoBehaviour
         Gizmos.DrawRay(transform.position, Quaternion.Euler(0, (fieldOfView *-90)+90, 0) * transform.forward*3f);
     }
 
+
+
+
+    ///p.s. questa classe e un mega blob
 }

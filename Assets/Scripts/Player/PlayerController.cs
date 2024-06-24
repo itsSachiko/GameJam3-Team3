@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
             dirSaved = InputManager.Movement;
         }
         dir = InputManager.Movement;
-        
+        //transform.forward=new Vector3(dir.x, 0,dir.y);
         transform.position += new Vector3(dir.x, 0, dir.y) * speed * Time.fixedDeltaTime;
     }
 

@@ -31,7 +31,7 @@ public class Knife : Item, IDangerous
     private void Kill(int index)
     {
         float minDistance = 999f;
-        Collider[] coll = Physics.OverlapSphere(transform.parent.position, range, 8);
+        Collider[] coll = Physics.OverlapSphere(transform.parent.position, range, 1<<8);
         foreach (Collider collider in coll)
         {
             if (collider.TryGetComponent(out NPCStateManager e))

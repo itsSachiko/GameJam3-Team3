@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,8 +8,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public float time;
-    [SerializeField] Canvas canvas;
+    public float lockedDownTime;
+    [SerializeField] Canvas LoseScreen;
+    [SerializeField] Canvas WinScreen;
     [SerializeField] TMP_Text text;
+    public int Counter;
+
 
     private void Awake()
     {
@@ -17,6 +22,25 @@ public class GameManager : MonoBehaviour
             Instance = this;
         MovementEnabled();
         PauseTime(1f);
+    }
+    private void OnEnable()
+    {
+        NPCStateManager.OnNpcDeath += WinCheck;
+    }
+
+    private void WinCheck()
+    {
+        if (Counter >= 4)
+        {
+            WinScreen.gameObject.SetActive(true);
+            MovementDisabled();
+            PauseTime(0);
+        }
+    }
+
+    private void OnDisable()
+    {
+        NPCStateManager.OnNpcDeath -= WinCheck;
     }
     void MovementDisabled()
     {
@@ -33,11 +57,19 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         time=time-Time.deltaTime;
-        text.text =time.ToString();
+        int minute=Mathf.RoundToInt(time)/60;
+        int seconds= Mathf.RoundToInt(time) %60;
+        if (seconds < 10)
+        {
+            text.text = minute.ToString() + ":0" + seconds;
+        }
+        else{
+            text.text = minute.ToString() + ":" + seconds;
+        }
         Debug.Log(time);
         if(time<=0)
         {
-            canvas.gameObject.SetActive(true);
+            LoseScreen.gameObject.SetActive(true);
             MovementDisabled();
             PauseTime(0);
         }
