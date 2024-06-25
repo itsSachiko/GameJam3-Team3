@@ -11,8 +11,8 @@ public class AudioManager : MonoBehaviour
     [Header("AudioClip")]
     public AudioClip background;
     public AudioClip enemyKill;
-    public AudioClip a;
-    public AudioClip b;
+    public AudioClip susItem;
+    public AudioClip bodyFound;
     public AudioClip c;
     public AudioClip d;
 

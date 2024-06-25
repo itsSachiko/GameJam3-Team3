@@ -113,6 +113,7 @@ public class NPCStateManager : MonoBehaviour
             {
                 if (collider[i].gameObject.GetComponentInChildren<IDangerous>()!=null)
                 {
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.susItem);
                     OnBodyFound();
                     return;
                 }
@@ -124,6 +125,7 @@ public class NPCStateManager : MonoBehaviour
     {
         if (other.gameObject.GetComponentInChildren<IDangerous>() != null && Vector3.Distance(transform.position,other.transform.position)<=closeRange)
         {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.susItem);
             SwitchState(alarmedState);
         } 
     }
