@@ -130,11 +130,12 @@ public class NPCStateManager : MonoBehaviour
 
     private void OnDeath()
     {
-        OnNpcDeath();
         if (isTarget)
         {
             GameManager.Instance.Counter++;
         }
+        OnNpcDeath();
+        AudioManager.instance.PlaySFX(AudioManager.instance.KillEnemy);
         this.gameObject.SetActive(false);
         Instantiate(bodyBag,transform.position,Quaternion.identity);
     }
