@@ -93,7 +93,8 @@ public class NPCStateManager : MonoBehaviour
         }
         if (other.gameObject.GetComponentInChildren<Body>() != null && isGuard&&!isLockDown)
         {
-            isLockDown=true;
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.bodyFound);
+            isLockDown =true;
             GameManager.Instance.time =GameManager.Instance.lockedDownTime;
         }
 
@@ -106,6 +107,7 @@ public class NPCStateManager : MonoBehaviour
         }
         if (other.gameObject.GetComponent<Body>() != null && Vector3.Dot(transform.forward, Vector3.Normalize(other.transform.position - transform.position)) >= fieldOfView&&!isGuard)
         {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.bodyFound);           
             isPanic = true;
             agent.isStopped = true;
             Collider[] collider = Physics.OverlapSphere(other.transform.position, alarmedRange, mask);
