@@ -757,6 +757,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5990313783458622482, guid: 1f86219b4f2b978468431c2f0a0689da, type: 3}
+      propertyPath: mesh
+      value: 
+      objectReference: {fileID: 1469895415242008691}
+    - target: {fileID: 5990313783458622482, guid: 1f86219b4f2b978468431c2f0a0689da, type: 3}
       propertyPath: rotationSpeed
       value: 10
       objectReference: {fileID: 0}
@@ -765,6 +769,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f86219b4f2b978468431c2f0a0689da, type: 3}
+--- !u!4 &1469895415242008691 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2478504943530568987, guid: 1f86219b4f2b978468431c2f0a0689da, type: 3}
+  m_PrefabInstance: {fileID: 1469895415242008690}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1613914717109160108
 PrefabInstance:
   m_ObjectHideFlags: 0
