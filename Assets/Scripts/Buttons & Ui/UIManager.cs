@@ -21,6 +21,10 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void Change()
+    {
+        Screen.fullScreen = !Screen.fullScreen;
+    }
 
     public void PlayGame()
     {
