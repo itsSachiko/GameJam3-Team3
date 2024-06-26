@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -8,12 +5,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public float time;
-    public float lockedDownTime;
     [SerializeField] Canvas LoseScreen;
     [SerializeField] Canvas WinScreen;
     [SerializeField] TMP_Text text;
     public int Counter;
-
+    public float lockdownTime;
 
     private void Awake()
     {
@@ -42,15 +38,15 @@ public class GameManager : MonoBehaviour
     {
         NPCStateManager.OnNpcDeath -= WinCheck;
     }
-    void MovementDisabled()
+    public void MovementDisabled()
     {
         InputManager.ActionMap.Player.Disable();
     }
-    void MovementEnabled()
+    public void MovementEnabled()
     {
         InputManager.ActionMap.Player.Enable();
     }
-    void PauseTime(float timer)
+    public void PauseTime(float timer)
     {
         Time.timeScale = timer;
     }
@@ -66,7 +62,8 @@ public class GameManager : MonoBehaviour
         else{
             text.text = minute.ToString() + ":" + seconds;
         }
-        Debug.Log(time);
+
+
         if(time<=0)
         {
             LoseScreen.gameObject.SetActive(true);
