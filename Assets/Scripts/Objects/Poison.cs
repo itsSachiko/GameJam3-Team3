@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Poison : Item
+public class Poison : Item ,IDangerous
 {
     [SerializeField] float range;
     IPoisonable poisonedItem;
