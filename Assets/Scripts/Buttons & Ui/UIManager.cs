@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]Canvas pauseMenu;
     bool isPaused=false;
 
+
     private void OnEnable()
     {
         InputManager.ActionMap.UIandMenu.Pause.performed+=Pause;
