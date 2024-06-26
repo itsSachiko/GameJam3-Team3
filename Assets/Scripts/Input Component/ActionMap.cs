@@ -284,6 +284,34 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UIandMenu"",
+            ""id"": ""fb3a0399-8d88-4eff-8231-ad77b13f4931"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""a0721cfa-467b-431c-86fe-c6e5a995d1c4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""dfac415e-45d2-4058-bb67-3b29375b76a3"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -295,6 +323,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_Kill = m_Player.FindAction("Kill", throwIfNotFound: true);
+        // UIandMenu
+        m_UIandMenu = asset.FindActionMap("UIandMenu", throwIfNotFound: true);
+        m_UIandMenu_Pause = m_UIandMenu.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -430,6 +461,52 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // UIandMenu
+    private readonly InputActionMap m_UIandMenu;
+    private List<IUIandMenuActions> m_UIandMenuActionsCallbackInterfaces = new List<IUIandMenuActions>();
+    private readonly InputAction m_UIandMenu_Pause;
+    public struct UIandMenuActions
+    {
+        private @ActionMap m_Wrapper;
+        public UIandMenuActions(@ActionMap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pause => m_Wrapper.m_UIandMenu_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_UIandMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIandMenuActions set) { return set.Get(); }
+        public void AddCallbacks(IUIandMenuActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIandMenuActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIandMenuActionsCallbackInterfaces.Add(instance);
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
+        }
+
+        private void UnregisterCallbacks(IUIandMenuActions instance)
+        {
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
+        }
+
+        public void RemoveCallbacks(IUIandMenuActions instance)
+        {
+            if (m_Wrapper.m_UIandMenuActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IUIandMenuActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIandMenuActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIandMenuActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public UIandMenuActions @UIandMenu => new UIandMenuActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -437,5 +514,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         void OnInteraction(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnKill(InputAction.CallbackContext context);
+    }
+    public interface IUIandMenuActions
+    {
+        void OnPause(InputAction.CallbackContext context);
     }
 }

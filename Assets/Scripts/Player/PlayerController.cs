@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         InputManager.ActionMap.Player.Dash.performed += Dash;
-
     }
 
     private void OnDisable()
