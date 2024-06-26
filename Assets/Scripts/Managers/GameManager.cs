@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         Instance = this;
         if (Instance == null)
             Instance = this;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         if (Counter ==4)
         {
+            Cursor.lockState &= CursorLockMode.None;
             WinScreen.gameObject.SetActive(true);
             MovementDisabled();
             PauseTime(0);
@@ -65,6 +67,7 @@ public class GameManager : MonoBehaviour
 
         if(time<=0)
         {
+            Cursor.lockState &= CursorLockMode.None;
             LoseScreen.gameObject.SetActive(true);
             MovementDisabled();
             PauseTime(0);

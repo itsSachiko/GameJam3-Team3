@@ -57,12 +57,14 @@ public class UIManager : MonoBehaviour
 
     public void Pause()
     {
+        Cursor.lockState=CursorLockMode.None;
         pauseMenu.gameObject.SetActive(true);
         GameManager.Instance.MovementDisabled();
         GameManager.Instance.PauseTime(0);
     }
     public void Resume()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         pauseMenu.gameObject.SetActive(false);
         GameManager.Instance.MovementEnabled();
         GameManager.Instance.PauseTime(1);

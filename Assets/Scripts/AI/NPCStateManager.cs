@@ -129,7 +129,7 @@ public class NPCStateManager : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.GetComponentInChildren<IDangerous>() != null && Vector3.Distance(transform.position,other.transform.position)<=closeRange)
+        if (other.gameObject.GetComponentInChildren<IDangerous>() != null && Vector3.Distance(transform.position,other.transform.position)<=closeRange&&!isPanic)
         {
             isPanic = true;
             AudioManager.Instance.PlaySFX(AudioManager.Instance.susItem);
