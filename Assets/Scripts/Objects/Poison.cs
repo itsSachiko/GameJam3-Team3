@@ -31,7 +31,7 @@ public class Poison : Item
     private void PoisonCoffee(int index)
     {
         float minDistance = 999f;
-        Collider[] coll = Physics.OverlapSphere(transform.parent.position, range, 8);
+        Collider[] coll = Physics.OverlapSphere(transform.parent.position, range);
         foreach (Collider collider in coll)
         {
             if (collider.TryGetComponent(out IPoisonable c))
@@ -44,7 +44,10 @@ public class Poison : Item
                 }
             }
         }
-
+        if (poisonedItem == null)
+        {
+            return;
+        }
         poisonedItem.isPoisoned = true;
     }
 
@@ -60,4 +63,11 @@ public class Poison : Item
         coll.enabled = false;
         Icon.OnIconDisabled?.Invoke();
     }
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta    ;
+        Gizmos.DrawWireSphere(transform.position, range);
+    }
+#endif
 }
