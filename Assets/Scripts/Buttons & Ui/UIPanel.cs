@@ -8,7 +8,7 @@ public class UIPanel : MonoBehaviour
     public Button primaryButton;
 
 
-    private void Start()
+    private void OnEnable()
     {
         primaryButton.Select();
     }
