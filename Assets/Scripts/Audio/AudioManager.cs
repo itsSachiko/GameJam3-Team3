@@ -13,8 +13,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip enemyKill;
     public AudioClip susItem;
     public AudioClip bodyFound;
-    public AudioClip c;
-    public AudioClip d;
+    public AudioClip timeMinute;
+    public AudioClip lockdown;
 
     private void Awake()
     {
