@@ -18,7 +18,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Stats")]
     [SerializeField] float speed;
+    [SerializeField] float rotationSpeed;
 
+    [SerializeField] Transform mesh;
     private void OnEnable()
     {
         InputManager.ActionMap.Player.Dash.performed += Dash;
@@ -45,6 +47,14 @@ public class PlayerController : MonoBehaviour
         dir = InputManager.Movement;
         //transform.forward=new Vector3(dir.x, 0,dir.y);
         transform.position += new Vector3(dir.x, 0, dir.y) * speed * Time.fixedDeltaTime;
+
+        if (dir != Vector2.zero)
+        {
+            var targetRotation = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.y));
+
+            mesh.rotation = Quaternion.Slerp(mesh.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+        }
     }
 
     private void Dash(InputAction.CallbackContext context)
