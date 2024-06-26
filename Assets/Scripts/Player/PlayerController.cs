@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float rotationSpeed;
 
+    [SerializeField] Transform mesh;
     private void OnEnable()
     {
         InputManager.ActionMap.Player.Dash.performed += Dash;
@@ -51,7 +52,7 @@ public class PlayerController : MonoBehaviour
         {
             var targetRotation = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.y));
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            mesh.rotation = Quaternion.Slerp(mesh.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
         }
     }
