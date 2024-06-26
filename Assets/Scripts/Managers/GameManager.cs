@@ -63,7 +63,6 @@ public class GameManager : MonoBehaviour
             text.text = minute.ToString() + ":" + seconds;
         }
 
-
         if(time<=0)
         {
             LoseScreen.gameObject.SetActive(true);

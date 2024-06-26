@@ -11,6 +11,11 @@ public class Coffee : Item, IPoisonable
 
     int lastPosition;
 
+    private void Update()
+    {
+        Debug.Log(isPoisoned);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (isPoisoned)
