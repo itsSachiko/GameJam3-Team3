@@ -44,6 +44,7 @@ public class Knife : Item, IDangerous
                 }
             }
         }
+        if (enemy == null) { return; }
         enemy.death?.Invoke();
     }
 

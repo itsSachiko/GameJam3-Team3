@@ -35,7 +35,7 @@ public class Chest : MonoBehaviour, IChest
 
     private void CompletedInteraction()
     {
-        pickableRenderer.enabled = true;
+        //pickableRenderer.enabled = true;
         pickable.OnCompletedInteraction -= CompletedInteraction;
         pickable = null;
         icon.OnIconChest?.Invoke(null);
@@ -62,7 +62,7 @@ public class Chest : MonoBehaviour, IChest
         inv.inventory[inv.currentInvSlot] = null;
         pickable.myTransform.parent = transform;
         pickable.myTransform.TryGetComponent(out pickableRenderer);
-        pickableRenderer.enabled = false;
+        //pickableRenderer.enabled = false;
         Inventory.OnInventoryChanged?.Invoke(null, inv.currentInvSlot);
     }
 }
