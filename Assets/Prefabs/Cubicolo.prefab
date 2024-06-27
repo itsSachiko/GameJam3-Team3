@@ -468,7 +468,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5216855446302929446, guid: dcee0d424dd3dcd43be375c972212159, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8666038412998327607, guid: dcee0d424dd3dcd43be375c972212159, type: 3}
@@ -545,7 +546,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5216855446302929446, guid: dcee0d424dd3dcd43be375c972212159, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8666038412998327607, guid: dcee0d424dd3dcd43be375c972212159, type: 3}
@@ -629,8 +631,85 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2079217000088733107, guid: 2e5082d06aa4f0b4a802419013e95084, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7703650409617151873}
+    - targetCorrespondingSourceObject: {fileID: 2079217000088733107, guid: 2e5082d06aa4f0b4a802419013e95084, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2385192998254644663}
+    - targetCorrespondingSourceObject: {fileID: 2079217000088733107, guid: 2e5082d06aa4f0b4a802419013e95084, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5739290979986469540}
   m_SourcePrefab: {fileID: 100100000, guid: 2e5082d06aa4f0b4a802419013e95084, type: 3}
+--- !u!1 &1317342290352587392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2079217000088733107, guid: 2e5082d06aa4f0b4a802419013e95084, type: 3}
+  m_PrefabInstance: {fileID: 1050182094651574067}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7703650409617151873
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317342290352587392}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0017458849, y: 0.0289776, z: 0.031172067}
+  m_Center: {x: 0.015969144, y: 0.014155805, z: 0}
+--- !u!65 &2385192998254644663
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317342290352587392}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.033684175, y: 0.0289776, z: 0.0016062491}
+  m_Center: {x: -0, y: 0.014155805, z: -0.01478291}
+--- !u!65 &5739290979986469540
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317342290352587392}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0019071732, y: 0.0289776, z: 0.031172067}
+  m_Center: {x: -0.015888497, y: 0.014155805, z: 0}
 --- !u!4 &1802551981099751482 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1698152231004430089, guid: 2e5082d06aa4f0b4a802419013e95084, type: 3}
@@ -700,7 +779,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5216855446302929446, guid: dcee0d424dd3dcd43be375c972212159, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8666038412998327607, guid: dcee0d424dd3dcd43be375c972212159, type: 3}
@@ -777,7 +857,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5216855446302929446, guid: dcee0d424dd3dcd43be375c972212159, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8666038412998327607, guid: dcee0d424dd3dcd43be375c972212159, type: 3}
@@ -854,7 +935,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5216855446302929446, guid: dcee0d424dd3dcd43be375c972212159, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8666038412998327607, guid: dcee0d424dd3dcd43be375c972212159, type: 3}
@@ -931,7 +1013,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2149302339466238865, guid: bec70b644d4ca0c41b42cf0109c650e3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8343255360799660870, guid: bec70b644d4ca0c41b42cf0109c650e3, type: 3}
@@ -1008,7 +1091,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5216855446302929446, guid: dcee0d424dd3dcd43be375c972212159, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8666038412998327607, guid: dcee0d424dd3dcd43be375c972212159, type: 3}
