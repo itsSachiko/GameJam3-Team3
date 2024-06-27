@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Default Material Palette
   m_EditorClassIdentifier: 
   array:
-  - {fileID: 2100000, guid: e6952e0a123da994c833369648d2ea4e, type: 2}
-  - {fileID: 2100000, guid: 96dd1a0c67abb5448bad08b2dcabb6e0, type: 2}
+  - {fileID: 2100000, guid: 3682957f2a4ecbb4fbe61103ff8e7d52, type: 2}
+  - {fileID: 2100000, guid: 50aaaad4e8bb3e94182cf55cc8303867, type: 2}
   - {fileID: 2100000, guid: a9fe2dff6a54a8a409996569e6259ee9, type: 2}
   - {fileID: 2100000, guid: bcff3f056f676c546acd39b11194197f, type: 2}
   - {fileID: 2100000, guid: b7fcb4d3999fab141a2b0f807543519a, type: 2}
   - {fileID: 2100000, guid: 3f767f231bfbcc94a9897cff2e77662d, type: 2}
   - {fileID: 2100000, guid: 84a60b96a36e9194caac0e3ec2c79521, type: 2}
   - {fileID: 2100000, guid: 819f80b1cc210234d95254eeebc01ae8, type: 2}
-  - {fileID: 2100000, guid: f973ecee93cc49a498e2b93de79beddb, type: 2}
-  - {fileID: 2100000, guid: dd1509fbad9336343adcd64e33675e46, type: 2}
+  - {fileID: 2100000, guid: 3e7bf3c8d1c735b42bae7f1ecd1fb598, type: 2}
+  - {fileID: 2100000, guid: af54b9c82ba57854abd68ff0b05be3e4, type: 2}
