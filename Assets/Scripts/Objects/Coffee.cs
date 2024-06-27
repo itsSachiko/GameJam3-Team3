@@ -58,7 +58,7 @@ public class Coffee : Item, IPoisonable
         if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit))
         {
             coll.enabled = true;
-            Vector3 newPos = new(transform.position.x, hit.point.y + coll.bounds.extents.y, transform.position.z);
+            Vector3 newPos = new(transform.position.x, transform.position.y, transform.position.z);
 
         }
         lastPosition = index;

@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 7250671831809614546}
-  defaultIcon: {fileID: 0}
+  defaultIcon: {fileID: 21300000, guid: ceef7279eef82ff498ce986160e8444e, type: 3}
 --- !u!114 &2430757743673555509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,8 +83,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71563d6e553d3ac47abeb8227752b410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  range: 1
+  image: {fileID: 21300000, guid: ceef7279eef82ff498ce986160e8444e, type: 3}
+  range: 0.5
 --- !u!1001 &1240421736710247419
 PrefabInstance:
   m_ObjectHideFlags: 0
